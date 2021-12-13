@@ -1,6 +1,6 @@
 # Mibrary
 
-Personal library
+Personal reading list
 _________________________________________________________________________________________________________________
 
 ## Getting Started with Create React App
