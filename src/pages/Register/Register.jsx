@@ -1,11 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
+import axios from 'axios';
 import { Form, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom'
 import logo from '../../logo.svg';
-
 import './Register.css'
 
 function Register () {
+
+  let [data, setData] = useState([])
+
+  async function getData () {
+    const response = axios.get('http://localhost:3000')
+    .then(() => {
+      setData(response)
+      console.log(data)
+    }).catch(err => console.error(err))
+  }
+
+  useEffect(() => {
+    getData()
+  }, [])
+
   return (
     <div className="register d-flex flex-column align-items-center justify-content-center">
       <h1 className="register__heading">Register</h1>
