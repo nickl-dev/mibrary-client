@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Form, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom'
@@ -9,16 +9,20 @@ function Register () {
 
   let [data, setData] = useState([])
 
-  async function getData () {
-    const response = axios.get('http://localhost:3000')
-    .then(() => {
+  function getData () {
+    axios.get('http://localhost:4000/')
+    .then((response) => {
       setData(response)
       console.log(data)
     }).catch(err => console.error(err))
   }
 
   useEffect(() => {
-    getData()
+    axios.get('http://localhost:4000/')
+    .then((response) => {
+      setData(response)
+      console.log(data)
+    }).catch(err => console.error(err))
   }, [])
 
   return (
