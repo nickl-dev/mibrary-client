@@ -1,14 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
+import axios from 'axios';
 import { Form, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom'
 import logo from '../../logo.svg';
+import './Register.css'
 
-import './Login.css'
+function Register () {
 
-function Login () {
+  let [data, setData] = useState([])
+
+  async function getData () {
+    const response = axios.get('http://localhost:3000')
+    .then(() => {
+      setData(response)
+      console.log(data)
+    }).catch(err => console.error(err))
+  }
+
+  useEffect(() => {
+    getData()
+  }, [])
+
   return (
-    <div className="login d-flex flex-column align-items-center justify-content-center">
-      <h1 className="login__heading">Login</h1>
+    <div className="register d-flex flex-column align-items-center justify-content-center">
+      <h1 className="register__heading">Register</h1>
 
     <img src={logo} className="logo my-5" />
 
@@ -26,15 +41,15 @@ function Login () {
           <Form.Control type="password" placeholder="Password" />
         </Form.Group>
 
-        <Button variant="primary" type="submit" className="submit">
-          Login
+        <Button variant="primary" type="submit">
+          Register
         </Button>
       </Form>
 
-      <Link to='/register' className="mt-4 tex">Don't Have an Account Yet?</Link>
+      <Link to='/' className="mt-4">Already Have an Account?</Link>
     </div>
   )
 }
 
 
-export default Login;
+export default Register;
