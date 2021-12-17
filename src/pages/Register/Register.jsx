@@ -7,22 +7,17 @@ import './Register.css'
 
 function Register () {
 
-  let [data, setData] = useState([])
+  const [data, setData] = useState([])
 
-  function getData () {
-    axios.get('http://localhost:4000/')
-    .then((response) => {
-      setData(response)
-      console.log(data)
-    }).catch(err => console.error(err))
-  }
+
 
   useEffect(() => {
-    axios.get('http://localhost:4000/')
-    .then((response) => {
-      setData(response)
-      console.log(data)
-    }).catch(err => console.error(err))
+    const fetchData = async () => {
+      const response = await axios.get(process.env.REACT_APP_API_BASE_URL)
+      .then((response) => setData(response)).catch(err => console.error(err))
+    }
+    fetchData()
+    console.log(data)
   }, [])
 
   return (

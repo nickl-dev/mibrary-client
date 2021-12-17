@@ -9,13 +9,6 @@ import Login from './pages/Login/Login';
 import Register from './pages/Register/Register';
 
 function App() {
-
-  // State / Hooks
-  const [state, setState] = useState(null)
-
-  // useEffect
-  useEffect(() => {})
-
   return (
     <div className="App">
       <Navbar />
