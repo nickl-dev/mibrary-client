@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import { Form, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom'
 import logo from '../../logo.svg';
@@ -6,11 +7,19 @@ import logo from '../../logo.svg';
 import './Login.css'
 
 function Login () {
+
+  const [users, setUsers] = useState([])
+
+  useEffect(() => {
+    const res = axios.get(process.env.REACT_APP_API_BASE_URL)
+    console.log(res)
+  }, [])
+
   return (
     <div className="login d-flex flex-column align-items-center justify-content-center">
       <h1 className="login__heading">Login</h1>
 
-    <img src={logo} className="logo my-5" />
+    <img src={logo} className="logo my-5" alt="Spinning book" />
 
       <Form>
         <Form.Group className="mb-3" controlId="formBasicEmail">

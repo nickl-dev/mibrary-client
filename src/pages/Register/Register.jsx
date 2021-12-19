@@ -1,30 +1,15 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React from 'react';
 import { Form, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom'
 import logo from '../../logo.svg';
 import './Register.css'
 
 function Register () {
-
-  const [data, setData] = useState([])
-
-
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const response = await axios.get(process.env.REACT_APP_API_BASE_URL)
-      .then((response) => setData(response)).catch(err => console.error(err))
-    }
-    fetchData()
-    console.log(data)
-  }, [])
-
   return (
     <div className="register d-flex flex-column align-items-center justify-content-center">
       <h1 className="register__heading">Register</h1>
 
-    <img src={logo} className="logo my-5" />
+    <img src={logo} className="logo my-5" alt="Spinning book" />
 
       <Form>
         <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -49,6 +34,5 @@ function Register () {
     </div>
   )
 }
-
 
 export default Register;
