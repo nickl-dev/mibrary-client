@@ -9,7 +9,7 @@ const navBar = (
         <Navbar.Toggle />
         <Navbar.Collapse className="justify-content-end">
           <Navbar.Text>
-            Login
+            {/*Login*/}
           </Navbar.Text>
         </Navbar.Collapse>
       </Container>

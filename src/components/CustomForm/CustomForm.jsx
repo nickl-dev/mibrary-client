@@ -5,11 +5,11 @@ import './CustomForm.css'
 function CustomForm (props) {
   const inputList = props.inputList
 
-  const inputs = inputList.map(input => {
+  const inputs = inputList.map((input, index) => {
     return (
-      <Form.Group className="mb-3" controlId={input.controlId}>
+      <Form.Group className="mb-3" controlId={input.controlId} key={index}>
         <Form.Label>{input.label}</Form.Label>
-        <Form.Control type={input.type} placeholder={input.placeholder} />
+        <Form.Control type={input.type} placeholder={input.placeholder} name={input.name} />
       </Form.Group>
     )
   })

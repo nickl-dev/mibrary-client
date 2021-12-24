@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import axios from 'axios';
-import { Form, Button } from 'react-bootstrap'
+import axios from 'axios'
 import { Link } from 'react-router-dom'
 import logo from '../../logo.svg'
 import './LoginOrRegister.css'
@@ -10,40 +9,47 @@ function LoginOrRegister () {
 
   const loginInputs = [
     {
-      formControlId: 'formBasicEmail',
+      controlId: 'formBasicEmail',
       type: 'email',
       label: 'Email Address',
-      placeholder: 'Enter Email Address'
+      placeholder: 'Enter Email Address',
+      name: 'email'
     },
     {
-      formControlId: 'formBasicPassword',
+      controlId: 'formBasicPassword',
       type: 'password',
       label: 'Password',
-      placeholder: 'Enter Password'
+      placeholder: 'Enter Password',
+      name: 'password'
     }
   ]
 
   const registerInputs = [
     {
-      formControlId: 'formBasicEmail',
-      type: 'email',
-      label: 'Email Address',
-      placeholder: 'Enter Email Address'
-    },
-    {
       type: 'text',
       label: 'Username',
-      placeholder: 'Enter Username'
+      placeholder: 'Enter Username',
+      name: 'username'
     },
     {
-      formControlId: 'formBasicPassword',
+      controlId: 'formBasicEmail',
+      type: 'email',
+      label: 'Email Address',
+      placeholder: 'Enter Email Address',
+      name: 'email'
+    },
+    {
+      controlId: 'formBasicPassword',
       type: 'password',
       label: 'Password',
-      placeholder: 'Enter Password'
+      placeholder: 'Enter Password',
+      name: 'password'
     }
   ]
 
   const [loginForm, setLoginForm] = useState(true)
+
+  const customForm = <CustomForm inputList={loginForm ? loginInputs : registerInputs} submitButtonText={loginForm ? 'Login' : 'Register'} />
 
   useEffect(() => {
     async function getUsers() {
@@ -57,29 +63,14 @@ function LoginOrRegister () {
     getUsers()
   }, [])
 
+  function handleSubmit () {}
+
   return (
     <div className="login-register d-flex flex-column align-items-center justify-content-center">
       <h1>{loginForm ? 'Login' : 'Register'}</h1>
-
-    <img src={logo} className="login-register__logo my-5" alt="Spinning book" />
-
-      <Form>
-        <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label>Email Address</Form.Label>
-          <Form.Control type="email" placeholder="Enter email" />
-        </Form.Group>
-
-        <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Label>Password</Form.Label>
-          <Form.Control type="password" placeholder="Password" />
-        </Form.Group>
-
-        <Button variant="primary" type="submit" className="submit">
-          Login
-        </Button>
-      </Form>
-
-      <small className="mt-4 tex" onClick={() => setLoginForm(!loginForm)}>Don't Have an Account Yet?</small>
+      <img src={logo} className="login-register__logo my-5" alt="Spinning book" />
+      {customForm}
+      <Link to="#" className="mt-4" onClick={() => setLoginForm(!loginForm)}>{loginForm ? 'Dont have an account yet?' : 'Already have an account?'}</Link>
     </div>
   )
 }
