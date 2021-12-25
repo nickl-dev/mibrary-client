@@ -9,13 +9,13 @@ function CustomForm (props) {
     return (
       <Form.Group className="mb-3" controlId={input.controlId} key={index}>
         <Form.Label>{input.label}</Form.Label>
-        <Form.Control type={input.type} placeholder={input.placeholder} name={input.name} />
+        <Form.Control type={input.type} placeholder={input.placeholder} name={input.name} onChange={props.onChange}/>
       </Form.Group>
     )
   })
 
   return (
-    <Form>
+    <Form onSubmit={props.onSubmit}>
       {inputs}
       <Button variant="primary" type="submit" className="submit">
         {props.submitButtonText}
