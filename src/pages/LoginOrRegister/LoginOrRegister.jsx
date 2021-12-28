@@ -7,6 +7,7 @@ import CustomForm from '../../components/CustomForm/CustomForm'
 
 function LoginOrRegister () {
 
+  // State
   const [loginForm, setLoginForm] = useState(true)
   const [loginInputValues, setLoginInputValues] = useState({
     email: '',
@@ -18,6 +19,7 @@ function LoginOrRegister () {
     password: ''
   })
 
+  // Inputs
   const loginInputs = [
     {
       controlId: 'formBasicEmail',
@@ -41,13 +43,13 @@ function LoginOrRegister () {
 
   const registerInputs = [
     {
+      controlId: 'formBasicUsername',
       type: 'text',
       label: 'Username',
       placeholder: 'Enter Username',
       name: 'username',
       value: registerInputValues.username,
       onChange: handleChange(registerInputValues, setRegisterInputValues)
-
     },
     {
       controlId: 'formBasicEmail',
@@ -69,14 +71,15 @@ function LoginOrRegister () {
     }
   ]
 
+  // Computed
   const formType = loginForm ? 'Login' : 'Register'
   const linkText = loginForm ? 'Dont have an account yet?' : 'Already have an account?'
   const inputList = loginForm ? loginInputs : registerInputs
-
   const customForm = <CustomForm inputList={inputList} submitButtonText={formType} onSubmit={handleSubmit} />
 
+  // Functions
   function handleChange (event, hookState, hookFunction) {
-    console.log(event)
+    console.log(event.target)
   }
 
   function changeForm () {
@@ -102,7 +105,9 @@ function LoginOrRegister () {
       <Link
         to="#"
         className="mt-4"
-        onClick={changeForm}>{linkText}
+        onClick={changeForm}
+      >
+        {linkText}
       </Link>
     </div>
   )
