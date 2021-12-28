@@ -7,9 +7,19 @@ function CustomForm (props) {
 
   const inputs = inputList.map((input, index) => {
     return (
-      <Form.Group className="mb-3" controlId={input.controlId} key={index}>
+      <Form.Group
+        className="mb-3"
+        controlId={input.controlId}
+        key={index}
+      >
         <Form.Label>{input.label}</Form.Label>
-        <Form.Control type={input.type} placeholder={input.placeholder} name={input.name} onChange={props.onChange}/>
+        <Form.Control
+          type={input.type}
+          placeholder={input.placeholder}
+          name={input.name}
+          value={input.value}
+          onChange={input.onChange}
+        />
       </Form.Group>
     )
   })
@@ -17,7 +27,11 @@ function CustomForm (props) {
   return (
     <Form onSubmit={props.onSubmit}>
       {inputs}
-      <Button variant="primary" type="submit" className="submit">
+      <Button
+        variant="primary"
+        type="submit"
+        className="submit"
+      >
         {props.submitButtonText}
       </Button>
     </Form>

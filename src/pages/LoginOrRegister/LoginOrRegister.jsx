@@ -25,6 +25,7 @@ function LoginOrRegister () {
       label: 'Email Address',
       placeholder: 'Enter Email Address',
       name: 'email',
+      value: loginInputValues.email,
       onChange: handleChange(loginInputValues, setLoginInputValues)
     },
     {
@@ -33,6 +34,7 @@ function LoginOrRegister () {
       label: 'Password',
       placeholder: 'Enter Password',
       name: 'password',
+      value: loginInputValues.password,
       onChange: handleChange(loginInputValues, setLoginInputValues)
     }
   ]
@@ -43,6 +45,7 @@ function LoginOrRegister () {
       label: 'Username',
       placeholder: 'Enter Username',
       name: 'username',
+      value: registerInputValues.username,
       onChange: handleChange(registerInputValues, setRegisterInputValues)
 
     },
@@ -52,6 +55,7 @@ function LoginOrRegister () {
       label: 'Email Address',
       placeholder: 'Enter Email Address',
       name: 'email',
+      value: registerInputValues.email,
       onChange: handleChange(registerInputValues, setRegisterInputValues)
     },
     {
@@ -60,17 +64,23 @@ function LoginOrRegister () {
       label: 'Password',
       placeholder: 'Enter Password',
       name: 'password',
+      value: registerInputValues.password,
       onChange: handleChange(registerInputValues, setRegisterInputValues)
     }
   ]
 
-  const customForm = <CustomForm inputList={loginForm ? loginInputs : registerInputs} submitButtonText={loginForm ? 'Login' : 'Register'} onSubmit={handleSubmit} />
+  const formType = loginForm ? 'Login' : 'Register'
+  const linkText = loginForm ? 'Dont have an account yet?' : 'Already have an account?'
+  const inputList = loginForm ? loginInputs : registerInputs
+
+  const customForm = <CustomForm inputList={inputList} submitButtonText={formType} onSubmit={handleSubmit} />
 
   function handleChange (event, hookState, hookFunction) {
-    if (event) {
-      const { name, value } = event.target
-      console.log(name, value)
-    }
+    console.log(event)
+  }
+
+  function changeForm () {
+    setLoginForm(!loginForm)
   }
 
   function handleSubmit (event) {
@@ -82,10 +92,18 @@ function LoginOrRegister () {
 
   return (
     <div className="login-register d-flex flex-column align-items-center justify-content-center">
-      <h1>{loginForm ? 'Login' : 'Register'}</h1>
-      <img src={logo} className="login-register__logo my-5" alt="Spinning book" />
+      <h1>{formType}</h1>
+      <img
+        src={logo}
+        className="login-register__logo my-5"
+        alt="Spinning book"
+      />
       {customForm}
-      <Link to="#" className="mt-4" onClick={() => setLoginForm(!loginForm)}>{loginForm ? 'Dont have an account yet?' : 'Already have an account?'}</Link>
+      <Link
+        to="#"
+        className="mt-4"
+        onClick={changeForm}>{linkText}
+      </Link>
     </div>
   )
 }
