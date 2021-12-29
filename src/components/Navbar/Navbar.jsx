@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { Navbar, Container } from 'react-bootstrap';
-import './Navbar.css';
+import React from 'react'
+import { Navbar, Container } from 'react-bootstrap'
+import './Navbar.css'
 
 const navBar = (
     <Navbar className="navbar" variant="dark">

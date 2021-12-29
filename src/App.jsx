@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import React from 'react'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
-import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css'
+import 'bootstrap/dist/css/bootstrap.min.css'
 
-import Navbar from './components/Navbar/Navbar';
-import LoginOrRegister from './pages/LoginOrRegister/LoginOrRegister';
+import Navbar from './components/Navbar/Navbar'
+import LoginOrRegister from './pages/LoginOrRegister/LoginOrRegister'
 
 function App() {
   return (
@@ -13,7 +13,7 @@ function App() {
       <Navbar />
       <Router>
         <Routes>
-          <Route path='/' element={<LoginOrRegister />} />
+          <Route path='/' exact element={<LoginOrRegister />} />
         </Routes>
       </Router>
     </div>

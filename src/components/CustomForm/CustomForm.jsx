@@ -9,7 +9,6 @@ function CustomForm (props) {
     return (
       <Form.Group
         className="mb-3"
-        controlId={input.controlId}
         key={index}
       >
         <Form.Label>{input.label}</Form.Label>
@@ -17,7 +16,6 @@ function CustomForm (props) {
           type={input.type}
           placeholder={input.placeholder}
           name={input.name}
-          value={input.value}
           onChange={input.onChange}
         />
       </Form.Group>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 import logo from '../../logo.svg'
@@ -10,64 +10,54 @@ function LoginOrRegister () {
   // State
   const [loginForm, setLoginForm] = useState(true)
   const [loginInputValues, setLoginInputValues] = useState({
-    email: '',
-    password: ''
+    email: null,
+    password: null
   })
   const [registerInputValues, setRegisterInputValues] = useState({
-    username: '',
-    email: '',
-    password: ''
+    username: null,
+    email: null,
+    password: null
   })
 
   // Inputs
   const loginInputs = [
     {
-      controlId: 'formBasicEmail',
       type: 'email',
       label: 'Email Address',
       placeholder: 'Enter Email Address',
       name: 'email',
-      value: loginInputValues.email,
-      onChange: handleChange(loginInputValues, setLoginInputValues)
+      onChange: () => handleChange(loginInputValues, setLoginInputValues)
     },
     {
-      controlId: 'formBasicPassword',
       type: 'password',
       label: 'Password',
       placeholder: 'Enter Password',
       name: 'password',
-      value: loginInputValues.password,
-      onChange: handleChange(loginInputValues, setLoginInputValues)
+      onChange: () => handleChange(loginInputValues, setLoginInputValues)
     }
   ]
 
   const registerInputs = [
     {
-      controlId: 'formBasicUsername',
       type: 'text',
       label: 'Username',
       placeholder: 'Enter Username',
       name: 'username',
-      value: registerInputValues.username,
-      onChange: handleChange(registerInputValues, setRegisterInputValues)
+      onChange: () => handleChange(registerInputValues, setRegisterInputValues)
     },
     {
-      controlId: 'formBasicEmail',
       type: 'email',
       label: 'Email Address',
       placeholder: 'Enter Email Address',
       name: 'email',
-      value: registerInputValues.email,
-      onChange: handleChange(registerInputValues, setRegisterInputValues)
+      onChange: () => handleChange(registerInputValues, setRegisterInputValues)
     },
     {
-      controlId: 'formBasicPassword',
       type: 'password',
       label: 'Password',
       placeholder: 'Enter Password',
       name: 'password',
-      value: registerInputValues.password,
-      onChange: handleChange(registerInputValues, setRegisterInputValues)
+      onChange: () => handleChange(registerInputValues, setRegisterInputValues)
     }
   ]
 
@@ -75,11 +65,10 @@ function LoginOrRegister () {
   const formType = loginForm ? 'Login' : 'Register'
   const linkText = loginForm ? 'Dont have an account yet?' : 'Already have an account?'
   const inputList = loginForm ? loginInputs : registerInputs
-  const customForm = <CustomForm inputList={inputList} submitButtonText={formType} onSubmit={handleSubmit} />
 
   // Functions
   function handleChange (event, hookState, hookFunction) {
-    console.log(event.target)
+    hookFunction({...hookState, [event.target.name]: event.target.value})
   }
 
   function changeForm () {
@@ -88,8 +77,27 @@ function LoginOrRegister () {
 
   function handleSubmit (event) {
     event.preventDefault()
-    if (loginForm) {
+
+    if (loginForm && checkObjectValues(loginInputValues)) {
       alert('Login form')
+      axios.get(process.env.REACT_APP_API_BASE_URL)
+      .then(res => console.log(res))
+      .catch(err => console.error(err))
+    } else if (!loginForm && checkObjectValues(registerInputValues)) {
+      alert('Register form')
+      axios.post(process.env.REACT_APP_API_BASE_URL, registerInputValues)
+      .then(res => console.log(res))
+      .catch(err => console.error(err))
+    }
+  }
+
+  function checkObjectValues (object) {
+    for (const property in object) {
+      if (!object[property]) {
+        return false
+      } else {
+        return true
+      }
     }
   }
 
@@ -101,7 +109,7 @@ function LoginOrRegister () {
         className="login-register__logo my-5"
         alt="Spinning book"
       />
-      {customForm}
+      <CustomForm inputList={inputList} submitButtonText={formType} onSubmit={handleSubmit} />
       <Link
         to="#"
         className="mt-4"
