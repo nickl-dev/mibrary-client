@@ -1,8 +1,8 @@
-.login {
+.login-register {
   margin: 10vh auto;
 }
 
-.logo {
+.login-register__logo {
   animation: spin 10s linear infinite;
   width: 100px;
 }
