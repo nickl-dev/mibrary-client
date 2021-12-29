@@ -3,16 +3,9 @@ import axios from 'axios'
 import { Link } from 'react-router-dom'
 import logo from '../../logo.svg'
 import './LoginOrRegister.css'
-<<<<<<< HEAD
-import CustomForm from '../../components/CustomForm/CustomForm'
-
-function LoginOrRegister () {
-
-=======
 import AppForm from '../../components/AppForm/AppForm'
 
 function LoginOrRegister () {
->>>>>>> dev
   // State
   const [loginForm, setLoginForm] = useState(true)
   const [loginInputValues, setLoginInputValues] = useState({
@@ -32,22 +25,14 @@ function LoginOrRegister () {
       label: 'Email Address',
       placeholder: 'Enter Email Address',
       name: 'email',
-<<<<<<< HEAD
-      onChange: () => handleChange(loginInputValues, setLoginInputValues)
-=======
       onChange: handleChange
->>>>>>> dev
     },
     {
       type: 'password',
       label: 'Password',
       placeholder: 'Enter Password',
       name: 'password',
-<<<<<<< HEAD
-      onChange: () => handleChange(loginInputValues, setLoginInputValues)
-=======
       onChange: handleChange
->>>>>>> dev
     }
   ]
 
@@ -57,33 +42,21 @@ function LoginOrRegister () {
       label: 'Username',
       placeholder: 'Enter Username',
       name: 'username',
-<<<<<<< HEAD
-      onChange: () => handleChange(registerInputValues, setRegisterInputValues)
-=======
       onChange: handleChange
->>>>>>> dev
     },
     {
       type: 'email',
       label: 'Email Address',
       placeholder: 'Enter Email Address',
       name: 'email',
-<<<<<<< HEAD
-      onChange: () => handleChange(registerInputValues, setRegisterInputValues)
-=======
       onChange: handleChange
->>>>>>> dev
     },
     {
       type: 'password',
       label: 'Password',
       placeholder: 'Enter Password',
       name: 'password',
-<<<<<<< HEAD
-      onChange: () => handleChange(registerInputValues, setRegisterInputValues)
-=======
       onChange: handleChange
->>>>>>> dev
     }
   ]
 
@@ -93,13 +66,7 @@ function LoginOrRegister () {
   const inputList = loginForm ? loginInputs : registerInputs
 
   // Functions
-  function handleChange (event, hookState, hookFunction) {
-<<<<<<< HEAD
-    hookFunction({...hookState, [event.target.name]: event.target.value})
-  }
-
-  function changeForm () {
-=======
+  function handleChange (event) {
     const { name, value } = event.target
     console.log(name, value)
     if (loginForm) {
@@ -110,7 +77,6 @@ function LoginOrRegister () {
   }
 
   function changeForm (event) {
->>>>>>> dev
     setLoginForm(!loginForm)
   }
 
@@ -148,11 +114,7 @@ function LoginOrRegister () {
         className="login-register__logo my-5"
         alt="Spinning book"
       />
-<<<<<<< HEAD
-      <CustomForm inputList={inputList} submitButtonText={formType} onSubmit={handleSubmit} />
-=======
-    <AppForm inputList={inputList} submitButtonText={formType} onSubmit={handleSubmit} />
->>>>>>> dev
+      <AppForm inputList={inputList} submitButtonText={formType} onSubmit={handleSubmit} />
       <Link
         to="#"
         className="mt-4"
