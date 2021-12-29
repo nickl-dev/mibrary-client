@@ -9,13 +9,13 @@ function LoginOrRegister () {
   // State
   const [loginForm, setLoginForm] = useState(true)
   const [loginInputValues, setLoginInputValues] = useState({
-    email: null,
-    password: null
+    email: '',
+    password: ''
   })
   const [registerInputValues, setRegisterInputValues] = useState({
-    username: null,
-    email: null,
-    password: null
+    username: '',
+    email: '',
+    password: ''
   })
 
   // Inputs
@@ -68,7 +68,7 @@ function LoginOrRegister () {
   // Functions
   function handleChange (event) {
     const { name, value } = event.target
-    console.log(name, value)
+    console.log(event)
     if (loginForm) {
       setLoginInputValues( {...loginInputValues, [name]: value} )
     } else {
@@ -82,14 +82,12 @@ function LoginOrRegister () {
 
   function handleSubmit (event) {
     event.preventDefault()
-
     if (loginForm && checkObjectValues(loginInputValues)) {
-      alert('Login form')
-      axios.get(process.env.REACT_APP_API_BASE_URL)
+      axios.post(process.env.REACT_APP_API_BASE_URL, loginInputValues)
       .then(res => console.log(res))
       .catch(err => console.error(err))
-    } else if (!loginForm && checkObjectValues(registerInputValues)) {
-      alert('Register form')
+    }
+    if (!loginForm && checkObjectValues(registerInputValues)) {
       axios.post(process.env.REACT_APP_API_BASE_URL, registerInputValues)
       .then(res => console.log(res))
       .catch(err => console.error(err))
@@ -100,9 +98,7 @@ function LoginOrRegister () {
     for (const property in object) {
       if (!object[property]) {
         return false
-      } else {
-        return true
-      }
+      } else return true
     }
   }
 
