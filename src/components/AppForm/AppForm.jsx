@@ -1,11 +1,9 @@
 import React from 'react'
 import { Form, Button } from 'react-bootstrap'
-import './CustomForm.css'
+import './AppForm.css'
 
-function CustomForm (props) {
-  const inputList = props.inputList
-
-  const inputs = inputList.map((input, index) => {
+function AppForm (props) {
+  const inputs = props.inputList.map((input, index) => {
     return (
       <Form.Group
         className="mb-3"
@@ -36,4 +34,4 @@ function CustomForm (props) {
   )
 }
 
-export default CustomForm
+export default AppForm
