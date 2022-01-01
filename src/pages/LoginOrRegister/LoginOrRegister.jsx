@@ -23,15 +23,19 @@ function LoginOrRegister () {
     {
       type: 'email',
       label: 'Email Address',
+      controlId: 'email',
       placeholder: 'Enter Email Address',
       name: 'email',
+      value: loginInputValues.email,
       onChange: handleChange
     },
     {
       type: 'password',
       label: 'Password',
+      controlId: 'password',
       placeholder: 'Enter Password',
       name: 'password',
+      value: loginInputValues.password,
       onChange: handleChange
     }
   ]
@@ -40,22 +44,28 @@ function LoginOrRegister () {
     {
       type: 'text',
       label: 'Username',
+      controlId: 'username',
       placeholder: 'Enter Username',
       name: 'username',
+      value: registerInputValues.username,
       onChange: handleChange
     },
     {
       type: 'email',
       label: 'Email Address',
+      controlId: 'email',
       placeholder: 'Enter Email Address',
       name: 'email',
+      value: registerInputValues.email,
       onChange: handleChange
     },
     {
       type: 'password',
       label: 'Password',
+      controlid: 'password',
       placeholder: 'Enter Password',
       name: 'password',
+      value: registerInputValues.password,
       onChange: handleChange
     }
   ]
@@ -82,14 +92,22 @@ function LoginOrRegister () {
 
   function handleSubmit (event) {
     event.preventDefault()
+
     if (loginForm && checkObjectValues(loginInputValues)) {
       axios.post(process.env.REACT_APP_API_BASE_URL, loginInputValues)
-      .then(res => console.log(res))
+      .then(res => {
+        console.log(res)
+        clearInputs(loginInputValues)
+      })
       .catch(err => console.error(err))
     }
+
     if (!loginForm && checkObjectValues(registerInputValues)) {
       axios.post(process.env.REACT_APP_API_BASE_URL, registerInputValues)
-      .then(res => console.log(res))
+      .then(res => {
+        console.log(res)
+        clearInputs(registerInputValues)
+      })
       .catch(err => console.error(err))
     }
   }
@@ -100,6 +118,10 @@ function LoginOrRegister () {
         return false
       } else return true
     }
+  }
+
+  function clearInputs (object) {
+    Object.keys(object).forEach(key => object[key] = '')
   }
 
   return (
