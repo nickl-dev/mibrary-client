@@ -1,2 +1,7 @@
-@import './breakpoints.scss';
-@import './fonts.scss';
+@import './_breakpoints.scss';
+@import './_fonts.scss';
+
+* {
+  margin: 0;
+  padding: 0;
+}

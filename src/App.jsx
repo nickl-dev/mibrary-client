@@ -1,7 +1,7 @@
 import React from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import './styles/global.scss'
 import 'bootstrap/dist/css/bootstrap.min.css'
+import './styles/global.scss'
 import Navbar from './components/Navbar/Navbar'
 import LoginOrRegister from './pages/LoginOrRegister/LoginOrRegister'
 import Library from './pages/Library/Library'
