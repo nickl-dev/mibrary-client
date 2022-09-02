@@ -1,11 +1,11 @@
 import React from 'react'
 import { Navbar, Container } from 'react-bootstrap'
-import './Navbar.css'
+import './Nav.scss'
 
-const navBar = (
+const nav = (
     <Navbar className="navbar" variant="dark">
       <Container>
-        <Navbar.Brand href="/">Mibrary</Navbar.Brand>
+        <Navbar.Brand href="/">BookStack</Navbar.Brand>
         <Navbar.Toggle />
         <Navbar.Collapse className="justify-content-end">
           <Navbar.Text>
@@ -16,8 +16,8 @@ const navBar = (
     </Navbar>
 )
 
-function NavBar () {
-  return ( navBar )
+function Nav () {
+  return ( nav )
 }
 
-export default NavBar;
+export default Nav;

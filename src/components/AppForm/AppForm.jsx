@@ -1,6 +1,6 @@
 import React from 'react'
 import { Form, Button } from 'react-bootstrap'
-import './AppForm.css'
+import './AppForm.scss'
 
 function AppForm (props) {
   const inputs = props.inputList.map((input, index) => {

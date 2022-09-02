@@ -1,19 +1,26 @@
 import React from 'react'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route, Redirect } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './styles/global.scss'
-import Navbar from './components/Navbar/Navbar'
-import LoginOrRegister from './pages/LoginOrRegister/LoginOrRegister'
-import Library from './pages/Library/Library'
+import Nav from './components/Nav/Nav'
+import Login from './pages/Login/Login'
+import Register from './pages/Register/Register'
+// import Library from './pages/Library/Library'
+
+// const isLoggedIn = false;
 
 function App() {
   return (
     <div className="App">
-      <Navbar />
+      <Nav />
       <Router>
         <Routes>
-          <Route path='/' exact element={<LoginOrRegister />} />
-          <Route path='/library' element={<Library />} />
+          {/* <Route exact path="/">
+            {isLoggedIn ? <Redirect to="/mybookstack" /> : <Login /> }
+          </Route>     */}
+          <Route path='/login' element={<Login />} />
+          <Route path='/register' element={<Register />} />
+          {/* <Route path='/library' element={<Library />} /> */}
         </Routes>
       </Router>
     </div>
