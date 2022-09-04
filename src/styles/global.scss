@@ -1,8 +1,8 @@
-@import './_breakpoints.scss';
-@import './_fonts.scss';
+@import './breakpoints.scss';
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: Georgia, serif;
 }

@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import bookstackLogo from '../../assets/logo.svg'
+import bookstackLogo from '../../assets/bookstack-logo.svg'
 import './Login.scss'
 import AppForm from '../../components/AppForm/AppForm'
 
-function LoginOrRegister () {
+function Login () {
   // State
   const [loginInputValues, setLoginInputValues] = useState({
     email: '',
@@ -45,10 +45,10 @@ function LoginOrRegister () {
 
   return (
     <div className="login d-flex flex-column align-items-center justify-content-center">
-      <h1>Login</h1>
+      <h1 className="mb-3">Login</h1>
       <img
         src={bookstackLogo}
-        className="login__logo my-5"
+        className="login__logo mb-3"
         alt="Spinning bookstack"
       />
 
@@ -69,4 +69,4 @@ function LoginOrRegister () {
 }
 
 
-export default LoginOrRegister;
+export default Login;

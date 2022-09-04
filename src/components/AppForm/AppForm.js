@@ -36,4 +36,4 @@ function AppForm (props) {
   )
 }
 
-export default AppForm
+export default AppForm;

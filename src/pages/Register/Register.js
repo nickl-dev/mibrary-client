@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import bookstackLogo from '../../assets/logo.svg'
+import bookstackLogo from '../../assets/bookstack-logo.svg'
 import './Register.scss'
 import AppForm from '../../components/AppForm/AppForm'
 
@@ -55,10 +55,10 @@ function Register () {
 
   return (
     <div className="register d-flex flex-column align-items-center justify-content-center">
-      <h1>Register</h1>
+      <h1 className="mb-3">Register</h1>
       <img
         src={bookstackLogo}
-        className="register__logo my-5"
+        className="register__logo mb-3"
         alt="Spinning bookstack"
       />
       <AppForm 
@@ -67,7 +67,7 @@ function Register () {
         onSubmit={handleSubmit}
       />
       <Link
-        to="/login"
+        to="/"
         className="mt-4"
       >
         Already have an account?
