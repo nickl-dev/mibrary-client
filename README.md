@@ -1,6 +1,6 @@
-# Mibrary (Client)
+# Personal Reading List (Client)
 
-Personal reading list
+Personal reading list built with React (work in progress)
 _________________________________________________________________________________________________________________
 
 ## Getting Started with Create React App
