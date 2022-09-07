@@ -1,6 +1,15 @@
-# Personal Reading List (Client)
+# Personal Reading List (Front End)
 
-Personal reading list built with React (work in progress)
+<img 
+  src="https://media4.giphy.com/media/hUA5JLuHW7kTDQMy7f/giphy.gif" 
+  width="150" 
+  height="150"
+  alt="Books being stacked on top of each other"
+/>
+
+This repository serves as the Front End of the Personal Reading List application.
+
+Built using ```React, JavaScript, Bootstrap, SASS, GraphQL``` (work in progress)
 _________________________________________________________________________________________________________________
 
 ## Getting Started with Create React App
