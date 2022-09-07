@@ -7,7 +7,7 @@
   alt="Books being stacked on top of each other"
 />
 
-This repository serves as the Front End of the Personal Reading List application.
+This repository serves as the Front End for the Personal Reading List application.
 
 Built using ```React, JavaScript, Bootstrap, SASS, GraphQL``` (work in progress)
 _________________________________________________________________________________________________________________
