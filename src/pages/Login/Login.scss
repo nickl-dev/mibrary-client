@@ -1,17 +1,25 @@
-@import '/src/styles/global.scss';
+@import "/src/styles/global.scss";
+
+.background {
+  display: none;
+  border: 3px solid black;
+  @include lg {
+    display: inline-block;
+    width: 100%;
+    background-image: url('/public/unsplash-stack-of-books.avif');
+  }
+}
 
 .login {
-  margin: 10vh auto;
-  
-  &__logo {
-    animation: spin 10s linear infinite;
-    width: 100px;
-  }
-  
+  padding-top: 10vh;
+
   @include md {
-    // background-image: url('/src/assets/bookstack-background.jpg');
-    background-size: cover;
-    background-position: center;
+    padding-top: 15vh;
+  }
+
+  @include lg {
+    width: 40%;
+    // margin-left: auto;
   }
 }
 

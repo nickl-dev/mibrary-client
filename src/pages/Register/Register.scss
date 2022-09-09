@@ -1,15 +1,15 @@
 @import '/src/styles/global.scss';
 
 .register {
-  margin: 10vh auto;
-  
-  &__logo {
-    animation: spin 10s linear infinite;
-    width: 100px;
+  min-height: 100vh;
+  padding-top: 10vh;
+
+  @include md {
+    padding-top: 15vh;
   }
   
-  @include md {
-    // background-image: url('/src/assets/bookstack-background.jpg');
+  @include lg {
+    background-image: url('/public/unsplash-stack-of-books.avif');
     background-size: cover;
     background-position: center;
   }

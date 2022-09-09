@@ -1,6 +1,8 @@
-$sm-breakpoint: 600px;
-$md-breakpoint: 960px;
-$lg-breakpoint: 1264px;
+// Breakpoints copied from React Bootstrap documentation
+$sm-breakpoint: 576px;
+$md-breakpoint: 768px;
+$lg-breakpoint: 992px;
+$xl-breakpoint: 1200px;
 
 @mixin sm {
   @media (min-width: $sm-breakpoint) {
@@ -16,6 +18,12 @@ $lg-breakpoint: 1264px;
 
 @mixin lg {
   @media (min-width: $lg-breakpoint) {
+    @content;
+  }
+}
+
+@mixin xl {
+  @media (min-width: $xl-breakpoint) {
     @content;
   }
 }

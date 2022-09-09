@@ -6,3 +6,15 @@
   box-sizing: border-box;
   font-family: Georgia, serif;
 }
+
+// For spinng book image on Login/Register pages
+.spinning-book {
+  animation: spin 10s linear infinite;
+  width: 100px;
+  margin-bottom: 16px;
+}
+
+@keyframes spin {
+  from { transform:rotate(0deg) }
+  to { transform:rotate(360deg) }
+}

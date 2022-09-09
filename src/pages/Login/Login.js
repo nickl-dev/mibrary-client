@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import bookstackLogo from '../../assets/bookstack-logo.svg'
+import bookstackLogo from '../../img/bookstack-logo.svg'
 import './Login.scss'
 import AppForm from '../../components/AppForm/AppForm'
 
@@ -17,7 +17,7 @@ function Login () {
       type: 'email',
       label: 'Email Address',
       controlId: 'email',
-      placeholder: 'Enter Email Address',
+      placeholder: 'Enter email address',
       name: 'email',
       value: loginInputValues.email,
       onChange: handleInputChange
@@ -26,7 +26,7 @@ function Login () {
       type: 'password',
       label: 'Password',
       controlId: 'password',
-      placeholder: 'Enter Password',
+      placeholder: 'Enter password',
       name: 'password',
       value: loginInputValues.password,
       onChange: handleInputChange
@@ -44,27 +44,31 @@ function Login () {
   }
 
   return (
-    <div className="login d-flex flex-column align-items-center justify-content-center">
-      <h1 className="mb-3">Login</h1>
-      <img
-        src={bookstackLogo}
-        className="login__logo mb-3"
-        alt="Spinning bookstack"
-      />
+    <div className="d-lg-flex">
+      <div class="background" />
 
-      <AppForm 
-        inputList={loginInputs} 
-        submitButtonText='Login'
-        onSubmit={handleSubmit} 
+      <div className="login d-flex flex-column align-items-center justify-content-center">
+        <h1 className="mb-3">Login</h1>
+        <img
+          src={bookstackLogo}
+          className="spinning-book"
+          alt="Spinning bookstack"
         />
 
-      <Link
-        to="/register"
-        className="mt-4"
-      >
-        Don't have an account yet?
-      </Link>
-    </div>
+        <AppForm 
+          inputList={loginInputs} 
+          submitButtonText='Login'
+          onSubmit={handleSubmit} 
+          />
+
+        <Link
+          to="/register"
+          className="mt-4"
+        >
+          Don't have an account yet?
+        </Link>
+      </div>
+  </div>
   )
 }
 

@@ -9,7 +9,7 @@ function AppForm (props) {
         className="mb-3"
         key={index}
       >
-        <Form.Label>{input.label}</Form.Label>
+        <Form.Label className="mb-0">{input.label}</Form.Label>
         <Form.Control
           type={input.type}
           controlid={input.controlId}
@@ -23,12 +23,14 @@ function AppForm (props) {
   })
 
   return (
-    <Form onSubmit={props.onSubmit}>
+    <Form
+      className="w-100 px-3 form"
+      onSubmit={props.onSubmit}
+    >
       {inputs}
       <Button
-        variant="primary"
+        variant="dark"
         type="submit"
-        className="submit"
       >
         {props.submitButtonText}
       </Button>
