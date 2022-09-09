@@ -1,10 +1,12 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import bookstackLogo from '../../img/bookstack-logo.svg'
+import bookstackLogo from '../../assets/bookstack-logo.svg'
 import './Login.scss'
 import AppForm from '../../components/AppForm/AppForm'
 
 function Login () {
+  useEffect(() => document.title = 'Personal Reading List | Login', [])
+
   // State
   const [loginInputValues, setLoginInputValues] = useState({
     email: '',
@@ -44,10 +46,9 @@ function Login () {
   }
 
   return (
-    <div className="d-lg-flex">
-      <div class="background" />
-
-      <div className="login d-flex flex-column align-items-center justify-content-center">
+    <div className="login d-lg-flex">
+      <div className="background" />
+      <div className="login__content d-flex flex-column align-items-center justify-content-center">
         <h1 className="mb-3">Login</h1>
         <img
           src={bookstackLogo}
@@ -68,7 +69,7 @@ function Login () {
           Don't have an account yet?
         </Link>
       </div>
-  </div>
+    </div>
   )
 }
 

@@ -10,11 +10,29 @@
 // For spinng book image on Login/Register pages
 .spinning-book {
   animation: spin 10s linear infinite;
-  width: 100px;
+  width: 70px;
   margin-bottom: 16px;
 }
 
 @keyframes spin {
   from { transform:rotate(0deg) }
   to { transform:rotate(360deg) }
+}
+
+.background {
+  display: none;
+  width: 40%;
+  @include lg {
+    display: block;
+    background-image: url('../assets/unsplash-stack-of-books.avif');
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+}
+
+h1 {
+  font-size: 40px;
+  @include lg {
+    font-size: 32px;
+  }
 }
