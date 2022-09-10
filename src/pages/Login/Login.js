@@ -4,7 +4,7 @@ import bookstackLogo from '../../assets/bookstack-logo.svg'
 import './Login.scss'
 import AppForm from '../../components/AppForm/AppForm'
 
-function Login () {
+function Login() {
   useEffect(() => document.title = 'Personal Reading List | Login', [])
 
   // State
@@ -35,13 +35,13 @@ function Login () {
     }
   ]
 
-  function handleInputChange (event) {
+  function handleInputChange(event) {
     const { name, value } = event.target
     console.log(event)
-    setLoginInputValues( {...loginInputValues, [name]: value} )
+    setLoginInputValues({ ...loginInputValues, [name]: value })
   }
 
-  function handleSubmit (event) {
+  function handleSubmit(event) {
     event.preventDefault();
   }
 
@@ -49,18 +49,18 @@ function Login () {
     <div className="login d-lg-flex">
       <div className="background" />
       <div className="login__content d-flex flex-column align-items-center justify-content-center">
-        <h1 className="mb-3">Login</h1>
+        <h1 className="login-register-heading mb-3">Login</h1>
         <img
           src={bookstackLogo}
           className="spinning-book"
           alt="Spinning bookstack"
         />
 
-        <AppForm 
-          inputList={loginInputs} 
+        <AppForm
+          inputList={loginInputs}
           submitButtonText='Login'
-          onSubmit={handleSubmit} 
-          />
+          onSubmit={handleSubmit}
+        />
 
         <Link
           to="/register"

@@ -5,7 +5,7 @@ import './styles/global.scss'
 import Nav from './components/Nav/Nav'
 import Login from './pages/Login/Login'
 import Register from './pages/Register/Register'
-
+import MyReadingList from './pages/MyReadingList/MyReadingList'
 
 function App() {
   return (
@@ -15,6 +15,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Login />} />
           <Route path='/register' element={<Register />} />
+          <Route path='/my-reading-list' element={<MyReadingList />} />
         </Routes>
       </Router>
     </div>

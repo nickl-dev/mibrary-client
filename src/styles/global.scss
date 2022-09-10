@@ -15,13 +15,19 @@
 }
 
 @keyframes spin {
-  from { transform:rotate(0deg) }
-  to { transform:rotate(360deg) }
+  from {
+    transform: rotate(0deg)
+  }
+
+  to {
+    transform: rotate(360deg)
+  }
 }
 
 .background {
   display: none;
   width: 40%;
+
   @include lg {
     display: block;
     background-image: url('../assets/unsplash-stack-of-books.avif');
@@ -30,8 +36,9 @@
   }
 }
 
-h1 {
+.login-register-heading {
   font-size: 40px;
+
   @include lg {
     font-size: 32px;
   }

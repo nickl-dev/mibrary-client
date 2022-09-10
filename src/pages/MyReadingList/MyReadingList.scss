@@ -1,0 +1,13 @@
+@import '/src/styles/global.scss';
+
+.reading-list {
+  &__book {
+    @include sm {
+      width: 40%;
+    }
+
+    @include lg {
+      width: 30%;
+    }
+  }
+}

@@ -2,8 +2,10 @@
 
 .register {
   height: calc(100vh - 56px);
+
   &__content {
-    padding-top: 100px;
+    padding-top: 60px;
+
     @include lg {
       padding-top: 0;
       width: 60%;

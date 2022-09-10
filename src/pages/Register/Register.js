@@ -59,7 +59,7 @@ const Register = () => {
     <div className="register d-lg-flex">
       <div className='background' />
       <div className="register__content d-flex flex-column align-items-center justify-content-center">
-        <h1 className="mb-3">Register</h1>
+        <h1 className="login-register-heading mb-3">Register</h1>
         <img
           src={bookstackLogo}
           className="spinning-book"
