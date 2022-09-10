@@ -6,6 +6,7 @@ import Nav from './components/Nav/Nav'
 import Login from './pages/Login/Login'
 import Register from './pages/Register/Register'
 import MyReadingList from './pages/MyReadingList/MyReadingList'
+import PageNotFound from './pages/PageNotFound/PageNotFound'
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path='/' element={<Login />} />
           <Route path='/register' element={<Register />} />
           <Route path='/my-reading-list' element={<MyReadingList />} />
+          <Route path='*' element={<PageNotFound />} />
         </Routes>
       </Router>
     </div>
