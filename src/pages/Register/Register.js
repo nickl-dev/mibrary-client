@@ -43,6 +43,15 @@ const Register = () => {
       value: registerInputValues.password,
       onChange: handleInputChange,
     },
+    {
+      type: 'password',
+      label: 'Confirm Password',
+      controlid: 'confirm-password',
+      placeholder: 'Please confirm password',
+      name: 'confirm-password',
+      value: registerInputValues.password,
+      onChange: handleInputChange
+    }
   ];
 
   function handleInputChange(event) {
@@ -53,6 +62,31 @@ const Register = () => {
 
   function handleSubmit(event) {
     event.preventDefault();
+    console.log(process.env.REACT_APP_GRAPHQL_API_URL);
+
+    fetch(process.env.REACT_APP_GRAPHQL_API_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ query: `
+        query {
+          users {
+            id
+            name
+            email
+            password
+            books {
+              title
+              author
+              genre
+              description
+            }
+          }
+        }`
+      })
+    })
+    .then(response => response.json())
+    .then(response => console.log(response.data))
+    .catch(error => console.error(error))
   }
 
   return (
