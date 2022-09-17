@@ -9,7 +9,7 @@
 
 This repository serves as the Front End of the Personal Reading List application. With this personal reading list, you can create an account which servers as your personal reading list. You can add an image of the cover, the title of the book, a short summary on the book, the author, and even a link to Amazon and/or Goodreads for each book.
 
-Built using ```React, JavaScript, Bootstrap, SASS, GraphQL``` (work in progress)
+Built using ```TypeScript, React, Redux, Bootstrap, SASS,``` (work in progress)
 _________________________________________________________________________________________________________________
 
 ## Getting Started with Create React App
